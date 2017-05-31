@@ -1,0 +1,26 @@
+function [LDM,k]=make_Lmatrix_volume(A,kernel,voxdim)
+% make L matrix that defines neares neighbours
+% S. Mohammadi 25/07/2012
+
+sz      = size(A);
+lgMSK   = sz(1)*sz(2)*sz(3);
+% Atmp    = ones(sz);
+% MSK     = find(A==0);
+
+LDM     = sparse(lgMSK,lgMSK);
+k=1;
+for iz=1:sz(3)
+    for iy=1:sz(2)
+        for ix=1:sz(1)
+            M   = zeros(sz(1),sz(2),sz(3));
+            if(ix>kernel && iy>kernel && iz>kernel && ix<sz(1)-kernel+1 && iy<sz(2)-kernel+1 && iz<sz(3)-kernel+1)
+                M(ix,iy,iz)     = 1;
+                [X,Y,Z]=ndgrid(-kernel:kernel,-kernel:kernel,-kernel:kernel);              
+                M(ix-kernel:ix+kernel,iy-kernel:iy+kernel,iz-kernel:iz+kernel)     = exp(-(X.^2+Y.^2+Z.).*voxdim.^2);
+             end       
+
+            LDM(:,k)    = M(:);
+            k           = k+1;
+        end
+    end
+end

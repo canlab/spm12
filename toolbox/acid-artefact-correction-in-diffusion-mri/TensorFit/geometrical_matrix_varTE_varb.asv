@@ -1,0 +1,26 @@
+function [IDM,DM] = geometrical_matrix_varTE_varb(V,bvalueTE)
+% S. Mohammadi 08/01/2012
+
+    sz=size(V);
+
+    if sz(1) ~=3,
+        disp(sz(1))
+        error('Invalid dimensions of gradient vectors!');
+    end
+
+    if size(bvalue,1) ~=1,
+        disp(size(bvalue,1))
+        error('Invalid dimensions of gradient vectors!');
+    end
+
+    DD=inline('cat(2,bsxfun(@times,[-x.*x; -y.*y; -z.*z; -2.*x.*y; -2.*x.*z; -2.*y.*z], bvalue),-TE)','x','y','z','bvalue','TE');
+    MSK = find((V(1,:).*V(1,:)+V(2,:).*V(2,:)+V(3,:).*V(3,:))>0);
+    if(numel(MSK)~=sz)
+        nbvalue = bvalueTE(:,1)/max(bvalue(MSK));
+    else
+        nbvalue = bvalueTE/max(bvalue);
+    end
+    DM = [DD(V(1,:),V(2,:),V(3,:),nbvalue,TE); ones(1,numel(nbvalue))];
+    DM  = DM';
+    IDM = inv((DM')*DM)*DM';
+return

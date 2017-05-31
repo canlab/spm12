@@ -1,0 +1,85 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="Eddy Current and Motion Correction is a software for the correction of image distortions developed by Siawoosh Mohammadi. It is part of the ACID toolbox for SPM.">
+<meta name="keywords" content="Eddy current correction, Motion correction, DTI Processing, Image Registration, Distortion Correction">
+	<title>[ACID/ECMOCO] - Eddy Current and Motion Correction</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="header"><h1>ACID - Artefact correction in diffusion MRI</h1></div>
+
+<div id="sub_header">  </div> 
+
+<div id="main_content_top"></div>
+
+<div id="main_content">
+	<div class="content">
+		<h2> (ms)POAS - (multi-shell) Position-Orientation Adaptive Smoothing</h2>
+		<h3>What is POAS?</h3>
+		<p>POAS is an adaptive denoising method for diffusion MR data. It reduces noise in the data without blurring the fine structures observed in dMRI. It does not rely on any specific diffusion model for the data and hence does not introduce a bias toward any of them. In fact, after using POAS any appropriate diffusion model can be applied whith much less variable estimates for the model parameters.  The methods uses the specific geometry of the space of (voxel) position and (gradient) orientation to define neighborhood in the measurement space. It assumes that the signal in this measurement space is characterized by regions with constant signal but of unknown shape and size, which are separated by discontinuities. A violation, e.g., by a smoother signal change in the regions, of this assumption results in a step function approximation with small steps. For details of the method, see <a href="http://dx.doi.org/10.1016/j.media.2012.05.007">Becker et al. (2012)</a>. The extension for multi-shell data is called msPOAS. The software is for academic use only. It is developed by J&ouml;rg Polzehl and Karsten Tabelow at the <a href="http://www.wias-berlin.de">Weierstrass Institute for Applied Analysis and Stochastics</a> Berlin.
+</p>
+		<h3>Use (ms)POAS</h3>
+		<p> Go to this <a href="https://bitbucket.org/siawoosh/acid-artefact-correction-in-diffusion-mri/wiki/POAS%20Wiki">wiki</a> for instruction how to use this toolbox. </p>
+		
+		<h3>A quick demo</h3>
+			<div style="text-align:center">
+				<img src="../images/graphical-abstract.png" width="400">
+			</div>
+
+		<p>Fig. 1: POAS applied on dMRI reduces noise for more stable estimates, e.g., in the diffusion tensor model. The achieved quality is comparable with the result of averaging 4 subsequent scans of the same subject. Obviously thus took approximately four times longer at the scanner then the result by POAS, which runs offline.</p> 
+
+		<h3>Read more</h3>
+
+                <p> Becker S, Tabelow K, Voss HU, Anwander A, Heidemann RM, Polzehl J (2012) Position-orientation adaptive smoothing of diffusion weighted magnetic resonance data (POAS). Medical Image Analysis 16: 1142-1155, 2012. <a href="http://dx.doi.org/10.1016/j.media.2012.05.007">doi: 10.1016/j.media.2012.05.007</a></p>
+
+	</div>
+
+		<div class="menu">	
+	
+		<div class="menu_title">Pre-Processing of DTI data</div>
+		<ul>
+		<li><a href="#" class="menu_link">Make Brain Mask</a></li>
+		<li><a href="../documentation/ECMOCO.html" class="menu_link">ECMOCO</a></li>
+		<li><a href="../documentation/poas.html"
+		class="menu_link">msPOAS</a></li>
+		<li><a href="../documentation/hysco.html" class="menu_link">HySCO</a></li>
+		</ul>
+		
+		
+		<div class="menu_title">Tensor Fitting</div>
+		<ul>
+		<li><a href="../documentation/RobustFitting_documentation.pdf" class="menu_link">Fit Diffusion Tensor</a></li>
+		<li><a href="../documentation/COVIPER.html" class="menu_link">COVIPER</a></li>
+		</ul>
+
+		<div class="menu_title">Spatial Normalization for FA-VBS</div>
+		<ul>
+		<li><a href="../documentation/FAVBS_documentation.pdf" class="menu_link">FA-VBS Normalisation</a></li>
+		</ul>
+		
+		<div class="menu_title">About ACID</div>
+		<ul>
+			<li><a href="../sidebar/gettingstarted.html" class="menu_link">Getting Started</a></li>
+			<li><a href="../sidebar/referencing.html" class="menu_link">Referencing</a></li>
+		</ul>
+			<div class="menu_title"><a href="../index.html" class="menu_link">Home</a></div>
+			
+	</div>
+	<div id="clear"></div>
+</div>
+	
+<div id="main_content_bottom"></div>
+
+<div id="footer">
+	<strong>Copyright © 2013</strong> | <a href="#">diffusiontools.com</a> | <b>Design by</b> <a href="http://www.pikanai.com">Pikanai.com</a>
+</div>
+
+
+
+
+</div></body></html>
